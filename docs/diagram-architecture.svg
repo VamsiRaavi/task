@@ -1,0 +1,58 @@
+<svg width="720" height="280" viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- FastAPI box -->
+  <rect x="40" y="40" width="180" height="90" rx="8" ry="8" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5"/>
+  <text x="130" y="70" text-anchor="middle" font-family="Arial" font-size="14" fill="#0d47a1">FastAPI</text>
+  <text x="130" y="92" text-anchor="middle" font-family="Arial" font-size="11" fill="#0d47a1">/graph/create</text>
+  <text x="130" y="108" text-anchor="middle" font-family="Arial" font-size="11" fill="#0d47a1">/graph/run</text>
+  <text x="130" y="124" text-anchor="middle" font-family="Arial" font-size="11" fill="#0d47a1">/graph/state/{run_id}</text>
+
+  <!-- Engine box -->
+  <rect x="270" y="40" width="190" height="190" rx="8" ry="8" fill="#f1f8e9" stroke="#388e3c" stroke-width="1.5"/>
+  <text x="365" y="65" text-anchor="middle" font-family="Arial" font-size="14" fill="#1b5e20">Engine</text>
+
+  <!-- Engine internals -->
+  <rect x="285" y="80" width="80" height="45" rx="6" ry="6" fill="#ffffff" stroke="#66bb6a" stroke-width="1"/>
+  <text x="325" y="105" text-anchor="middle" font-family="Arial" font-size="11" fill="#2e7d32">graphs</text>
+
+  <rect x="375" y="80" width="70" height="45" rx="6" ry="6" fill="#ffffff" stroke="#66bb6a" stroke-width="1"/>
+  <text x="410" y="102" text-anchor="middle" font-family="Arial" font-size="11" fill="#2e7d32">runs</text>
+
+  <rect x="285" y="140" width="160" height="40" rx="6" ry="6" fill="#ffffff" stroke="#66bb6a" stroke-width="1"/>
+  <text x="365" y="156" text-anchor="middle" font-family="Arial" font-size="11" fill="#2e7d32">run_graph()</text>
+  <text x="365" y="171" text-anchor="middle" font-family="Arial" font-size="11" fill="#2e7d32">state + log</text>
+
+  <!-- Registries -->
+  <rect x="500" y="40" width="170" height="80" rx="8" ry="8" fill="#fff3e0" stroke="#f57c00" stroke-width="1.5"/>
+  <text x="585" y="65" text-anchor="middle" font-family="Arial" font-size="13" fill="#e65100">NodeRegistry</text>
+  <text x="585" y="85" text-anchor="middle" font-family="Arial" font-size="11" fill="#e65100">name → node function</text>
+
+  <rect x="500" y="140" width="170" height="80" rx="8" ry="8" fill="#fce4ec" stroke="#ad1457" stroke-width="1.5"/>
+  <text x="585" y="165" text-anchor="middle" font-family="Arial" font-size="13" fill="#880e4f">ToolRegistry</text>
+  <text x="585" y="185" text-anchor="middle" font-family="Arial" font-size="11" fill="#880e4f">name → tool function</text>
+
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#424242" />
+    </marker>
+  </defs>
+
+  <!-- FastAPI -> Engine -->
+  <line x1="220" y1="85" x2="270" y2="85" stroke="#424242" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="245" y="77" text-anchor="middle" font-family="Arial" font-size="10" fill="#424242">HTTP</text>
+
+  <!-- Engine -> FastAPI -->
+  <line x1="270" y1="105" x2="220" y2="105" stroke="#424242" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="245" y="117" text-anchor="middle" font-family="Arial" font-size="10" fill="#424242">state/log</text>
+
+  <!-- Engine -> NodeRegistry -->
+  <line x1="460" y1="95" x2="500" y2="80" stroke="#424242" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="480" y="70" text-anchor="middle" font-family="Arial" font-size="9" fill="#424242">resolve nodes</text>
+
+  <!-- Engine -> ToolRegistry -->
+  <line x1="460" y1="165" x2="500" y2="180" stroke="#424242" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="480" y="195" text-anchor="middle" font-family="Arial" font-size="9" fill="#424242">tools</text>
+</svg>
